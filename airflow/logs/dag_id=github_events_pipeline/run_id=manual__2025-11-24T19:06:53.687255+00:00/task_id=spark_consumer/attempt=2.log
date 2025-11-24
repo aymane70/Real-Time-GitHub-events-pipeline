@@ -1,0 +1,121 @@
+[2025-11-24T19:24:34.809+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: github_events_pipeline.spark_consumer manual__2025-11-24T19:06:53.687255+00:00 [queued]>
+[2025-11-24T19:24:34.820+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: github_events_pipeline.spark_consumer manual__2025-11-24T19:06:53.687255+00:00 [queued]>
+[2025-11-24T19:24:34.820+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2025-11-24T19:24:34.839+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): spark_consumer> on 2025-11-24 19:06:53.687255+00:00
+[2025-11-24T19:24:34.844+0000] {standard_task_runner.py:60} INFO - Started process 175 to run task
+[2025-11-24T19:24:34.846+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'github_events_pipeline', 'spark_consumer', 'manual__2025-11-24T19:06:53.687255+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/github_pipeline_dag.py', '--cfg-path', '/tmp/tmprzzl1_pt']
+[2025-11-24T19:24:34.848+0000] {standard_task_runner.py:88} INFO - Job 19: Subtask spark_consumer
+[2025-11-24T19:24:34.898+0000] {task_command.py:423} INFO - Running <TaskInstance: github_events_pipeline.spark_consumer manual__2025-11-24T19:06:53.687255+00:00 [running]> on host 406476b48dcd
+[2025-11-24T19:24:34.995+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='github_events_pipeline' AIRFLOW_CTX_TASK_ID='spark_consumer' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T19:06:53.687255+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-24T19:06:53.687255+00:00'
+[2025-11-24T19:24:34.996+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-24T19:24:34.996+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/dags/spark_consumer.py']
+[2025-11-24T19:24:35.006+0000] {subprocess.py:86} INFO - Output:
+[2025-11-24T19:24:36.709+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/home/airflow/.local/lib/python3.8/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-11-24T19:24:36.774+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /home/airflow/.ivy2/cache
+[2025-11-24T19:24:36.775+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /home/airflow/.ivy2/jars
+[2025-11-24T19:24:36.779+0000] {subprocess.py:93} INFO - org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+[2025-11-24T19:24:36.780+0000] {subprocess.py:93} INFO - org.apache.kafka#kafka-clients added as a dependency
+[2025-11-24T19:24:36.780+0000] {subprocess.py:93} INFO - org.apache.spark#spark-token-provider-kafka-0-10_2.12 added as a dependency
+[2025-11-24T19:24:36.780+0000] {subprocess.py:93} INFO - org.apache.commons#commons-pool2 added as a dependency
+[2025-11-24T19:24:36.780+0000] {subprocess.py:93} INFO - org.postgresql#postgresql added as a dependency
+[2025-11-24T19:24:36.780+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-5a052bba-5340-467a-a57d-3116eb10932e;1.0
+[2025-11-24T19:24:36.781+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-11-24T19:24:39.441+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0 in central
+[2025-11-24T19:24:39.761+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.0 in central
+[2025-11-24T19:24:41.538+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-runtime;3.3.4 in central
+[2025-11-24T19:24:41.736+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-api;3.3.4 in central
+[2025-11-24T19:24:42.018+0000] {subprocess.py:93} INFO - 	found org.xerial.snappy#snappy-java;1.1.10.3 in central
+[2025-11-24T19:24:43.278+0000] {subprocess.py:93} INFO - 	found org.slf4j#slf4j-api;2.0.7 in central
+[2025-11-24T19:24:45.322+0000] {subprocess.py:93} INFO - 	found commons-logging#commons-logging;1.1.3 in central
+[2025-11-24T19:24:45.486+0000] {subprocess.py:93} INFO - 	found com.google.code.findbugs#jsr305;3.0.0 in central
+[2025-11-24T19:24:48.597+0000] {subprocess.py:93} INFO - 	found org.apache.commons#commons-pool2;2.11.1 in central
+[2025-11-24T19:24:48.752+0000] {subprocess.py:93} INFO - 	found org.apache.kafka#kafka-clients;3.5.1 in central
+[2025-11-24T19:24:49.010+0000] {subprocess.py:93} INFO - 	found com.github.luben#zstd-jni;1.5.5-1 in central
+[2025-11-24T19:24:49.252+0000] {subprocess.py:93} INFO - 	found org.lz4#lz4-java;1.8.0 in central
+[2025-11-24T19:24:49.493+0000] {subprocess.py:93} INFO - 	found org.postgresql#postgresql;42.6.0 in central
+[2025-11-24T19:24:49.725+0000] {subprocess.py:93} INFO - 	found org.checkerframework#checker-qual;3.31.0 in central
+[2025-11-24T19:24:49.894+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.5.0/spark-sql-kafka-0-10_2.12-3.5.0.jar ...
+[2025-11-24T19:24:50.168+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0!spark-sql-kafka-0-10_2.12.jar (439ms)
+[2025-11-24T19:24:50.237+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.5.1/kafka-clients-3.5.1.jar ...
+[2025-11-24T19:24:50.709+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.kafka#kafka-clients;3.5.1!kafka-clients.jar (540ms)
+[2025-11-24T19:24:50.779+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.12/3.5.0/spark-token-provider-kafka-0-10_2.12-3.5.0.jar ...
+[2025-11-24T19:24:50.845+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.0!spark-token-provider-kafka-0-10_2.12.jar (135ms)
+[2025-11-24T19:24:50.925+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar ...
+[2025-11-24T19:24:51.034+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.commons#commons-pool2;2.11.1!commons-pool2.jar (188ms)
+[2025-11-24T19:24:51.104+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar ...
+[2025-11-24T19:24:51.210+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.postgresql#postgresql;42.6.0!postgresql.jar (175ms)
+[2025-11-24T19:24:51.289+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar ...
+[2025-11-24T19:24:51.356+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] com.google.code.findbugs#jsr305;3.0.0!jsr305.jar (146ms)
+[2025-11-24T19:24:51.432+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client-runtime/3.3.4/hadoop-client-runtime-3.3.4.jar ...
+[2025-11-24T19:24:52.669+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.hadoop#hadoop-client-runtime;3.3.4!hadoop-client-runtime.jar (1312ms)
+[2025-11-24T19:24:52.741+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client-api/3.3.4/hadoop-client-api-3.3.4.jar ...
+[2025-11-24T19:24:53.645+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.hadoop#hadoop-client-api;3.3.4!hadoop-client-api.jar (976ms)
+[2025-11-24T19:24:53.715+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/1.1.10.3/snappy-java-1.1.10.3.jar ...
+[2025-11-24T19:24:53.862+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.xerial.snappy#snappy-java;1.1.10.3!snappy-java.jar(bundle) (216ms)
+[2025-11-24T19:24:53.939+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar ...
+[2025-11-24T19:24:54.016+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.slf4j#slf4j-api;2.0.7!slf4j-api.jar (152ms)
+[2025-11-24T19:24:54.081+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar ...
+[2025-11-24T19:24:54.149+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] commons-logging#commons-logging;1.1.3!commons-logging.jar (133ms)
+[2025-11-24T19:24:54.220+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.5.5-1/zstd-jni-1.5.5-1.jar ...
+[2025-11-24T19:24:54.501+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] com.github.luben#zstd-jni;1.5.5-1!zstd-jni.jar (350ms)
+[2025-11-24T19:24:54.569+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar ...
+[2025-11-24T19:24:54.683+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.lz4#lz4-java;1.8.0!lz4-java.jar (182ms)
+[2025-11-24T19:24:54.764+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/checkerframework/checker-qual/3.31.0/checker-qual-3.31.0.jar ...
+[2025-11-24T19:24:54.836+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.checkerframework#checker-qual;3.31.0!checker-qual.jar (153ms)
+[2025-11-24T19:24:54.837+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 12949ms :: artifacts dl 5107ms
+[2025-11-24T19:24:54.837+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2025-11-24T19:24:54.837+0000] {subprocess.py:93} INFO - 	com.github.luben#zstd-jni;1.5.5-1 from central in [default]
+[2025-11-24T19:24:54.837+0000] {subprocess.py:93} INFO - 	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+[2025-11-24T19:24:54.837+0000] {subprocess.py:93} INFO - 	commons-logging#commons-logging;1.1.3 from central in [default]
+[2025-11-24T19:24:54.837+0000] {subprocess.py:93} INFO - 	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+[2025-11-24T19:24:54.838+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-api;3.3.4 from central in [default]
+[2025-11-24T19:24:54.838+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-runtime;3.3.4 from central in [default]
+[2025-11-24T19:24:54.838+0000] {subprocess.py:93} INFO - 	org.apache.kafka#kafka-clients;3.5.1 from central in [default]
+[2025-11-24T19:24:54.838+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0 from central in [default]
+[2025-11-24T19:24:54.838+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.0 from central in [default]
+[2025-11-24T19:24:54.838+0000] {subprocess.py:93} INFO - 	org.checkerframework#checker-qual;3.31.0 from central in [default]
+[2025-11-24T19:24:54.839+0000] {subprocess.py:93} INFO - 	org.lz4#lz4-java;1.8.0 from central in [default]
+[2025-11-24T19:24:54.839+0000] {subprocess.py:93} INFO - 	org.postgresql#postgresql;42.6.0 from central in [default]
+[2025-11-24T19:24:54.839+0000] {subprocess.py:93} INFO - 	org.slf4j#slf4j-api;2.0.7 from central in [default]
+[2025-11-24T19:24:54.839+0000] {subprocess.py:93} INFO - 	org.xerial.snappy#snappy-java;1.1.10.3 from central in [default]
+[2025-11-24T19:24:54.839+0000] {subprocess.py:93} INFO - 	:: evicted modules:
+[2025-11-24T19:24:54.839+0000] {subprocess.py:93} INFO - 	org.apache.kafka#kafka-clients;3.4.1 by [org.apache.kafka#kafka-clients;3.5.1] in [default]
+[2025-11-24T19:24:54.840+0000] {subprocess.py:93} INFO - 	org.xerial.snappy#snappy-java;1.1.10.1 by [org.xerial.snappy#snappy-java;1.1.10.3] in [default]
+[2025-11-24T19:24:54.840+0000] {subprocess.py:93} INFO - 	org.slf4j#slf4j-api;1.7.36 by [org.slf4j#slf4j-api;2.0.7] in [default]
+[2025-11-24T19:24:54.840+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-24T19:24:54.840+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2025-11-24T19:24:54.840+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-11-24T19:24:54.841+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-24T19:24:54.841+0000] {subprocess.py:93} INFO - 	|      default     |   17  |   14  |   14  |   3   ||   14  |   14  |
+[2025-11-24T19:24:54.841+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-24T19:24:54.841+0000] {subprocess.py:93} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-5a052bba-5340-467a-a57d-3116eb10932e
+[2025-11-24T19:24:54.841+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-11-24T19:24:54.884+0000] {subprocess.py:93} INFO - 	14 artifacts copied, 0 already retrieved (64076kB/42ms)
+[2025-11-24T19:24:55.024+0000] {subprocess.py:93} INFO - 25/11/24 19:24:55 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-11-24T19:24:55.169+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2025-11-24T19:24:55.169+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-11-24T19:24:57.803+0000] {subprocess.py:93} INFO - 25/11/24 19:24:57 WARN ResolveWriteToStream: Temporary checkpoint location created which is deleted normally when the query didn't fail: /tmp/temporary-20f6642a-7e29-4d8b-a62b-6b100e9c0f18. If it's required to delete it under any circumstances, please set spark.sql.streaming.forceDeleteTempCheckpointLocation to true. Important to know deleting temp checkpoint folder is best effort.
+[2025-11-24T19:24:57.818+0000] {subprocess.py:93} INFO - 25/11/24 19:24:57 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2025-11-24T19:25:18.475+0000] {local_task_job_runner.py:121} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-11-24T19:25:18.477+0000] {process_utils.py:131} INFO - Sending 15 to group 175. PIDs of all processes in the group: [177, 186, 175]
+[2025-11-24T19:25:18.477+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 175
+[2025-11-24T19:25:18.478+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-11-24T19:25:18.479+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2025-11-24T19:25:18.498+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 203, in execute
+    result = self.subprocess_hook.run_command(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2452, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2025-11-24T19:25:18.502+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=github_events_pipeline, task_id=spark_consumer, execution_date=20251124T190653, start_date=20251124T192434, end_date=20251124T192518
+[2025-11-24T19:25:18.520+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 19 for task spark_consumer (Task received SIGTERM signal; 175)
+[2025-11-24T19:25:18.539+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=177, status='terminated', started='19:24:34') (177) terminated with exit code None
+[2025-11-24T19:25:18.878+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=175, status='terminated', exitcode=1, started='19:24:34') (175) terminated with exit code 1
+[2025-11-24T19:25:19.051+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=186, status='terminated', started='19:24:34') (186) terminated with exit code None
+[2025-11-24T19:25:19.052+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 143
+[2025-11-24T19:25:19.071+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

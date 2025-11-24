@@ -674,3 +674,25 @@ File Path                                   PID  Runtime      # DAGs    # Errors
 /opt/airflow/dags/github_pipeline_dag.py    662  0.00s             1           0  0.06s           2025-11-24T19:07:54
 ================================================================================
 [2025-11-24T19:08:30.398+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
+[2025-11-24T19:24:33.520+0000] {manager.py:469} INFO - Processing files using up to 2 processes at a time 
+[2025-11-24T19:24:33.520+0000] {manager.py:470} INFO - Process each file at most once every 30 seconds
+[2025-11-24T19:24:33.520+0000] {manager.py:471} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-11-24T19:24:33.521+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2025-11-24T19:24:33.522+0000] {manager.py:741} INFO - There are 1 files in /opt/airflow/dags
+[2025-11-24T19:24:33.577+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/github_pipeline_dag.py    166  0.03s             0           0
+================================================================================
+[2025-11-24T19:25:03.671+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/github_pipeline_dag.py                           1           0  0.31s           2025-11-24T19:24:33
+================================================================================
+[2025-11-24T19:25:19.481+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15

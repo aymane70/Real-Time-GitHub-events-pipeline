@@ -557,3 +557,17 @@
 [2025-11-24T19:08:24.913+0000] {logging_mixin.py:188} INFO - [2025-11-24T19:08:24.912+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2025-11-24T19:08:24.921+0000] {logging_mixin.py:188} INFO - [2025-11-24T19:08:24.921+0000] {dag.py:3823} INFO - Setting next_dagrun for github_events_pipeline to None, run_after=None
 [2025-11-24T19:08:24.933+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/github_pipeline_dag.py took 0.050 seconds
+[2025-11-24T19:24:33.559+0000] {processor.py:161} INFO - Started process (PID=166) to work on /opt/airflow/dags/github_pipeline_dag.py
+[2025-11-24T19:24:33.560+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/github_pipeline_dag.py for tasks to queue
+[2025-11-24T19:24:33.561+0000] {logging_mixin.py:188} INFO - [2025-11-24T19:24:33.560+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/github_pipeline_dag.py
+[2025-11-24T19:24:33.582+0000] {processor.py:840} INFO - DAG(s) 'github_events_pipeline' retrieved from /opt/airflow/dags/github_pipeline_dag.py
+[2025-11-24T19:24:33.817+0000] {logging_mixin.py:188} INFO - [2025-11-24T19:24:33.816+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-24T19:24:33.829+0000] {logging_mixin.py:188} INFO - [2025-11-24T19:24:33.829+0000] {dag.py:3823} INFO - Setting next_dagrun for github_events_pipeline to None, run_after=None
+[2025-11-24T19:24:33.850+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/github_pipeline_dag.py took 0.293 seconds
+[2025-11-24T19:25:03.942+0000] {processor.py:161} INFO - Started process (PID=519) to work on /opt/airflow/dags/github_pipeline_dag.py
+[2025-11-24T19:25:03.942+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/github_pipeline_dag.py for tasks to queue
+[2025-11-24T19:25:03.943+0000] {logging_mixin.py:188} INFO - [2025-11-24T19:25:03.943+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/github_pipeline_dag.py
+[2025-11-24T19:25:03.950+0000] {processor.py:840} INFO - DAG(s) 'github_events_pipeline' retrieved from /opt/airflow/dags/github_pipeline_dag.py
+[2025-11-24T19:25:04.033+0000] {logging_mixin.py:188} INFO - [2025-11-24T19:25:04.033+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-24T19:25:04.042+0000] {logging_mixin.py:188} INFO - [2025-11-24T19:25:04.042+0000] {dag.py:3823} INFO - Setting next_dagrun for github_events_pipeline to None, run_after=None
+[2025-11-24T19:25:04.055+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/github_pipeline_dag.py took 0.116 seconds
