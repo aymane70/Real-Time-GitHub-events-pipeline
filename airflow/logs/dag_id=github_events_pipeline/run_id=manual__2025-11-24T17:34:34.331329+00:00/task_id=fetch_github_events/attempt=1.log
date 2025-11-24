@@ -1,0 +1,34 @@
+[2025-11-24T17:34:36.329+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: github_events_pipeline.fetch_github_events manual__2025-11-24T17:34:34.331329+00:00 [queued]>
+[2025-11-24T17:34:36.335+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: github_events_pipeline.fetch_github_events manual__2025-11-24T17:34:34.331329+00:00 [queued]>
+[2025-11-24T17:34:36.335+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-11-24T17:34:36.345+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): fetch_github_events> on 2025-11-24 17:34:34.331329+00:00
+[2025-11-24T17:34:36.348+0000] {standard_task_runner.py:60} INFO - Started process 207 to run task
+[2025-11-24T17:34:36.350+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'github_events_pipeline', 'fetch_github_events', 'manual__2025-11-24T17:34:34.331329+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/github_pipeline_dag.py', '--cfg-path', '/tmp/tmpckka6h7v']
+[2025-11-24T17:34:36.351+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask fetch_github_events
+[2025-11-24T17:34:36.388+0000] {task_command.py:423} INFO - Running <TaskInstance: github_events_pipeline.fetch_github_events manual__2025-11-24T17:34:34.331329+00:00 [running]> on host f695b3ac4e06
+[2025-11-24T17:34:36.451+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='github_events_pipeline' AIRFLOW_CTX_TASK_ID='fetch_github_events' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T17:34:34.331329+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-24T17:34:34.331329+00:00'
+[2025-11-24T17:34:36.451+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-24T17:34:36.452+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/dags/github_producer.py']
+[2025-11-24T17:34:36.459+0000] {subprocess.py:86} INFO - Output:
+[2025-11-24T17:38:00.726+0000] {local_task_job_runner.py:121} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-11-24T17:38:00.738+0000] {process_utils.py:131} INFO - Sending 15 to group 207. PIDs of all processes in the group: [208, 207]
+[2025-11-24T17:38:00.739+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 207
+[2025-11-24T17:38:00.739+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-11-24T17:38:00.740+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2025-11-24T17:38:00.759+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 203, in execute
+    result = self.subprocess_hook.run_command(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2452, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2025-11-24T17:38:00.766+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=github_events_pipeline, task_id=fetch_github_events, execution_date=20251124T173434, start_date=20251124T173436, end_date=20251124T173800
+[2025-11-24T17:38:00.806+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 4 for task fetch_github_events (Task received SIGTERM signal; 207)
+[2025-11-24T17:38:00.839+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=207, status='terminated', exitcode=1, started='17:34:35') (207) terminated with exit code 1
+[2025-11-24T17:38:00.840+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=208, status='terminated', started='17:34:35') (208) terminated with exit code None
+[2025-11-24T17:38:00.840+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 143
+[2025-11-24T17:38:00.867+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,40 @@
+[2025-11-24T17:34:36.328+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: github_events_pipeline.spark_consumer manual__2025-11-24T17:34:34.331329+00:00 [queued]>
+[2025-11-24T17:34:36.333+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: github_events_pipeline.spark_consumer manual__2025-11-24T17:34:34.331329+00:00 [queued]>
+[2025-11-24T17:34:36.334+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-11-24T17:34:36.344+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): spark_consumer> on 2025-11-24 17:34:34.331329+00:00
+[2025-11-24T17:34:36.347+0000] {standard_task_runner.py:60} INFO - Started process 206 to run task
+[2025-11-24T17:34:36.349+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'github_events_pipeline', 'spark_consumer', 'manual__2025-11-24T17:34:34.331329+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/github_pipeline_dag.py', '--cfg-path', '/tmp/tmpbuqm46me']
+[2025-11-24T17:34:36.350+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask spark_consumer
+[2025-11-24T17:34:36.388+0000] {task_command.py:423} INFO - Running <TaskInstance: github_events_pipeline.spark_consumer manual__2025-11-24T17:34:34.331329+00:00 [running]> on host f695b3ac4e06
+[2025-11-24T17:34:36.451+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='github_events_pipeline' AIRFLOW_CTX_TASK_ID='spark_consumer' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T17:34:34.331329+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-24T17:34:34.331329+00:00'
+[2025-11-24T17:34:36.452+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-24T17:34:36.452+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/dags/spark_consumer.py']
+[2025-11-24T17:34:36.459+0000] {subprocess.py:86} INFO - Output:
+[2025-11-24T17:34:36.738+0000] {subprocess.py:93} INFO - /home/airflow/.local/lib/python3.8/site-packages/pyspark/bin/load-spark-env.sh: line 68: ps: command not found
+[2025-11-24T17:34:36.738+0000] {subprocess.py:93} INFO - JAVA_HOME is not set
+[2025-11-24T17:34:36.830+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-11-24T17:34:36.830+0000] {subprocess.py:93} INFO -   File "/opt/airflow/dags/spark_consumer.py", line 19, in <module>
+[2025-11-24T17:34:36.830+0000] {subprocess.py:93} INFO -     spark = SparkSession.builder \
+[2025-11-24T17:34:36.831+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/pyspark/sql/session.py", line 497, in getOrCreate
+[2025-11-24T17:34:36.831+0000] {subprocess.py:93} INFO -     sc = SparkContext.getOrCreate(sparkConf)
+[2025-11-24T17:34:36.831+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/pyspark/context.py", line 515, in getOrCreate
+[2025-11-24T17:34:36.831+0000] {subprocess.py:93} INFO -     SparkContext(conf=conf or SparkConf())
+[2025-11-24T17:34:36.831+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/pyspark/context.py", line 201, in __init__
+[2025-11-24T17:34:36.831+0000] {subprocess.py:93} INFO -     SparkContext._ensure_initialized(self, gateway=gateway, conf=conf)
+[2025-11-24T17:34:36.831+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/pyspark/context.py", line 436, in _ensure_initialized
+[2025-11-24T17:34:36.831+0000] {subprocess.py:93} INFO -     SparkContext._gateway = gateway or launch_gateway(conf)
+[2025-11-24T17:34:36.831+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/pyspark/java_gateway.py", line 107, in launch_gateway
+[2025-11-24T17:34:36.832+0000] {subprocess.py:93} INFO -     raise PySparkRuntimeError(
+[2025-11-24T17:34:36.832+0000] {subprocess.py:93} INFO - pyspark.errors.exceptions.base.PySparkRuntimeError: [JAVA_GATEWAY_EXITED] Java gateway process exited before sending its port number.
+[2025-11-24T17:34:36.858+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-11-24T17:34:36.868+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-11-24T17:34:36.870+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=github_events_pipeline, task_id=spark_consumer, execution_date=20251124T173434, start_date=20251124T173436, end_date=20251124T173436
+[2025-11-24T17:34:36.878+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 3 for task spark_consumer (Bash command failed. The command returned a non-zero exit code 1.; 206)
+[2025-11-24T17:34:36.922+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-11-24T17:34:36.936+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

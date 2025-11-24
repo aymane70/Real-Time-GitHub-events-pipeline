@@ -1,0 +1,37 @@
+[2025-11-24T17:43:30.312+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: github_events_pipeline.fetch_github_events manual__2025-11-24T17:34:34.331329+00:00 [queued]>
+[2025-11-24T17:43:30.321+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: github_events_pipeline.fetch_github_events manual__2025-11-24T17:34:34.331329+00:00 [queued]>
+[2025-11-24T17:43:30.322+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2025-11-24T17:43:30.332+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): fetch_github_events> on 2025-11-24 17:34:34.331329+00:00
+[2025-11-24T17:43:30.335+0000] {standard_task_runner.py:60} INFO - Started process 173 to run task
+[2025-11-24T17:43:30.337+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'github_events_pipeline', 'fetch_github_events', 'manual__2025-11-24T17:34:34.331329+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/github_pipeline_dag.py', '--cfg-path', '/tmp/tmpdclj8oo0']
+[2025-11-24T17:43:30.338+0000] {standard_task_runner.py:88} INFO - Job 7: Subtask fetch_github_events
+[2025-11-24T17:43:30.382+0000] {task_command.py:423} INFO - Running <TaskInstance: github_events_pipeline.fetch_github_events manual__2025-11-24T17:34:34.331329+00:00 [running]> on host 7dbb4be0a8da
+[2025-11-24T17:43:30.450+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='github_events_pipeline' AIRFLOW_CTX_TASK_ID='fetch_github_events' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T17:34:34.331329+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-24T17:34:34.331329+00:00'
+[2025-11-24T17:43:30.451+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-24T17:43:30.451+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/dags/github_producer.py']
+[2025-11-24T17:43:30.458+0000] {subprocess.py:86} INFO - Output:
+[2025-11-24T17:44:30.870+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to None. Terminating instance.
+[2025-11-24T17:44:30.872+0000] {process_utils.py:131} INFO - Sending 15 to group 173. PIDs of all processes in the group: [174, 173]
+[2025-11-24T17:44:30.872+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 173
+[2025-11-24T17:44:30.872+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-11-24T17:44:30.873+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2025-11-24T17:44:30.883+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 203, in execute
+    result = self.subprocess_hook.run_command(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2452, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2025-11-24T17:44:30.886+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=github_events_pipeline, task_id=fetch_github_events, execution_date=20251124T173434, start_date=20251124T174330, end_date=20251124T174430
+[2025-11-24T17:44:30.897+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 7 for task fetch_github_events ((psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(github_events_pipeline, fetch_github_events, manual__2025-11-24T17:34:34.331329+00:00, -1) is not present in table "task_instance".
+
+[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
+[parameters: {'task_id': 'fetch_github_events', 'dag_id': 'github_events_pipeline', 'run_id': 'manual__2025-11-24T17:34:34.331329+00:00', 'map_index': -1, 'start_date': datetime.datetime(2025, 11, 24, 17, 43, 30, 313053, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2025, 11, 24, 17, 44, 30, 886278, tzinfo=Timezone('UTC')), 'duration': 60}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj); 173)
+[2025-11-24T17:44:30.924+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=174, status='terminated', started='17:43:29') (174) terminated with exit code None
+[2025-11-24T17:44:30.924+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=173, status='terminated', exitcode=1, started='17:43:29') (173) terminated with exit code 1
